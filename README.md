@@ -22,6 +22,12 @@ matches what you would get in the browser.
 
 ## Screenshots
 
+![Quick Cleanup replacing the selection in place](images/demo.gif)
+
+The recording is the whole workflow: draw a selection, pick
+`Filters → Lama Cleanup → Quick Cleanup (last settings)`, and only the selected
+pixels change — no dialog, no new layer, no round trip through files.
+
 | Before — the text to remove | After — only the selection was inpainted |
 |-----------------------------------|-------------------------------------|
 | ![Before](images/before.png) | ![After](images/after.png) |
