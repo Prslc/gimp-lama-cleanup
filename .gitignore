@@ -1,0 +1,21 @@
+# Test / development artifacts
+.gimp-test/
+.rt/
+.tmp/
+.lintvenv/
+__pycache__/
+*.pyc
+
+# Test output
+e2e.log
+e2e-report.txt
+real-verify.log
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Ruff
+.ruff_cache/
