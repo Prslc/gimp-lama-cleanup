@@ -27,10 +27,6 @@
 `Filters → Lama Cleanup → Quick Cleanup (last settings)`，只有选区里的像素被
 替换 —— 不弹对话框、不新建图层、不经过文件来回倒腾。
 
-| 处理前 —— 要去掉的文字 | 处理后 —— 只有选区被修复 |
-|-----------------------------------|-------------------------------------|
-| ![处理前](../images/before.png) | ![处理后](../images/after.png) |
-
 ## 特性
 
 - **默认就地修改** —— 直接改当前图层；也提供非破坏性的 `New layer` 模式
@@ -260,23 +256,6 @@ pip install ruff
 ruff check --target-version py313 \
     --select E,F,W,B,UP,SIM,C4,RET,ARG --ignore E501 .
 ```
-
-## 同类项目
-
-社区里还有别的插件在解决相邻的问题。它们都不对接 lama-cleaner 服务端；本插件
-是独立写成的 —— 那个共同的骨架（导出 → HTTP → 导入）由 GIMP 的插件 API 和
-"LaMa 跑不进 GIMP 自带 Python"这两件事共同决定。
-
-- **[moebius-gimp](https://github.com/Daniel-Steinberger/moebius-gimp)** —— GIMP 3
-  的客户端/服务端修复，对接自建的 Moebius 服务。架构上最接近。它把结果插入为
-  **新图层**，并且导出时做了 flatten（会丢 alpha）；本插件**原地**写回、保留
-  alpha，并且裁剪到选区而不是上传整张图。
-- **[krita-iopaint](https://github.com/chayleaf/krita-iopaint)** —— 同样的思路，
-  但是给 Krita 的：对接 `127.0.0.1:8080` 的 IOPaint，地址写死在源码里。仅
-  Krita，无对话框，无配置。
-- **[deep_erase](https://github.com/mamipi972/deep_erase)** —— 同样是 GIMP 3 +
-  LaMa，但**本地**在自管 venv 里跑 ONNX，而不是调服务端。如果你根本不想跑
-  lama-cleaner，选它。
 
 ## 致谢
 

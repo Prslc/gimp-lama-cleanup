@@ -28,10 +28,6 @@ The recording is the whole workflow: draw a selection, pick
 `Filters → Lama Cleanup → Quick Cleanup (last settings)`, and only the selected
 pixels change — no dialog, no new layer, no round trip through files.
 
-| Before — the text to remove | After — only the selection was inpainted |
-|-----------------------------------|-------------------------------------|
-| ![Before](images/before.png) | ![After](images/after.png) |
-
 ## Features
 
 - **In-place by default** — the current layer is modified directly. A
@@ -281,25 +277,6 @@ pip install ruff
 ruff check --target-version py313 \
     --select E,F,W,B,UP,SIM,C4,RET,ARG --ignore E501 .
 ```
-
-## Related projects
-
-Other GIMP/Krita plug-ins solve neighbouring problems. None of them talks to a
-lama-cleaner server, and this plug-in was written independently of them — the
-shared shape (export → HTTP → import) is dictated by GIMP's plug-in API and by
-the fact that LaMa cannot run inside GIMP's bundled Python.
-
-- **[moebius-gimp](https://github.com/Daniel-Steinberger/moebius-gimp)** — GIMP 3
-  client/server inpainting against a self-hosted Moebius server. Closest in
-  architecture. It inserts the result as a **new layer** and flattens the export
-  (which drops alpha); this plug-in writes back **in place**, preserves alpha,
-  and crops to the selection instead of uploading the whole image.
-- **[krita-iopaint](https://github.com/chayleaf/krita-iopaint)** — the same idea
-  for Krita: talks to IOPaint at `127.0.0.1:8080`, hard-coded. Krita only, no
-  dialog, no configuration.
-- **[deep_erase](https://github.com/mamipi972/deep_erase)** — GIMP 3 + LaMa, but
-  runs ONNX **locally** in a self-managed venv instead of calling a server. Pick
-  that one if you would rather not run lama-cleaner at all.
 
 ## Credit
 
